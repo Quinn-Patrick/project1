@@ -234,6 +234,7 @@ public class ReimbDaoImp implements ReimbDao {
 	
 	
 	private LocalDateTime dateFormatReverse(Timestamp time) {
-		return time.toLocalDateTime();		
+		if(time != null)return time.toLocalDateTime();
+		else return null;
 	}
 }

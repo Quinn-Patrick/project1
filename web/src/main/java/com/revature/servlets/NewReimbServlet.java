@@ -22,14 +22,14 @@ public class NewReimbServlet extends HttpServlet{
 	@Override
 	  protected void doGet(HttpServletRequest req, HttpServletResponse res)
 	    throws IOException, ServletException {
-		System.out.println("Made it here.");
+
 	}
 	
 	
     @Override
 	  protected void doPost(HttpServletRequest req, HttpServletResponse res)
 	    throws IOException, ServletException {
-		 System.out.println("Made it here.");
+
 		 res.setContentType("application/json");
 		 double amount = Double.parseDouble(req.getParameter("amount"));
 		 int type = 0;
@@ -43,11 +43,9 @@ public class NewReimbServlet extends HttpServlet{
 		 case("other"):type = 3;
 		 break;
 		 }
-		 System.out.println(req.getParameter("desc"));
 		 
 		 String desc = req.getParameter("desc");
 		 
-		 System.out.println(desc);
 		 
 		 Reimb r = new Reimb(amount, LocalDateTime.now(),  null, desc, 0, -1, 0, type);
 		 ReimbService.storeReimb(r);

@@ -1,5 +1,7 @@
 package services;
 
+import java.util.List;
+
 import com.revature.data.ReimbDao;
 import com.revature.data.ReimbDaoImp;
 import com.revature.models.Reimb;
@@ -13,5 +15,9 @@ public class ReimbService {
 	
 	public static Reimb retrieveReimb(int i) {
 		return data.retrieveReimb(i);
+	}
+	
+	public static List<Reimb> retrieveAllReimbs(){
+		return data.retrieveAllReimbs();
 	}
 }

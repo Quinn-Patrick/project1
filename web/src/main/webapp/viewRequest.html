@@ -8,6 +8,8 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     
+     
 </head>
 
 <body>
@@ -15,32 +17,141 @@
         <h1>Expense Reimbursement Portal</h1>
         <p class = 'lead'>View Your Past Reimbursements</p>
     </div>
-        <div class = 'row'>
-        <div class="col-sm-6 col-md-3 col-lg-3" style="background-color:lightgray;">
-            ID: 000000000
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3" style="background-color:white;">
-            Author: You
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3" style="background-color:lightgray;">
-            Amount: $1000000
-        </div>
+    <div id = 'block'>
+        
     </div>
-
-    <div class="col-sm-12 col-md-12 col-lg-12" style="background-color:white;">
-        Description: I bought the entire nation of Angola.
-    </div>
-    <div class = 'row'>
-        <div class="col-sm-6 col-md-3 col-lg-3" style="background-color:lightgray;">
-            Type: National Buyout
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3" style="background-color:white;">
-            Status: Rejected
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3" style="background-color:lightgray;">
-            Resolver: Triangulus Constantine
-        </div>
-    </div>
+    
+    
+    <script>
+	     let xhr = new XMLHttpRequest;
+	     let url = "http://localhost:8080/project1web/viewRequest";
+	     xhr.onreadystatechange = function() {
+	     	  if(this.readyState == 4 && this.status == 200) {
+	     		  console.log(this.responseText);
+	     		  data = JSON.parse(this.responseText);
+	     		  for(i = 0; i < data.length; i++){
+	     			  
+	     			  //Put in the main four rows-------------
+	     			  let row1 = document.createElement('div');
+	     			  row1.setAttribute('class', 'row');
+	     			  row1.setAttribute('style', 'background-color:lightgray');
+	     			  document.getElementById('block').appendChild(row1);
+	     			  let row2 = document.createElement('div');
+	     			  row2.setAttribute('class', 'row');
+	     			  document.getElementById('block').appendChild(row2);
+	     			  let row3 = document.createElement('div');
+	     			  row3.setAttribute('style', 'background-color:lightgray');
+	     			  row3.setAttribute('class', 'row');
+	     			  document.getElementById('block').appendChild(row3);
+	     			  let row4 = document.createElement('div');
+	     			  row4.setAttribute('class', 'row');
+	     			  document.getElementById('block').appendChild(row4);
+	     			  //----------------------------------------
+	     			  
+	     			  //add a rule to help keep things organized
+	     			  let hr = document.createElement('hr');
+	     			  document.getElementById('block').appendChild(hr);
+	     			  
+	     			  //Dress up row 1--------------------------
+	     			  //Create each cell
+	     			  let row1Cell = [document.createElement('div'),
+	     			  document.createElement('div'),
+	     			  document.createElement('div')];
+	     			  //Give each cell the proper attributes
+	     			  row1Cell[0].setAttribute('class', "col-sm-6 col-md-3 col-lg-3");
+	     			  row1Cell[1].setAttribute('class', "col-sm-6 col-md-3 col-lg-3");
+	     			  row1Cell[2].setAttribute('class', "col-sm-6 col-md-3 col-lg-3");
+	     			  //Give each cell its contents
+	     			  let node = document.createTextNode(`ID: ${data[i].reimbId}`);
+	     			  row1Cell[0].appendChild(node);
+	     			  node = document.createTextNode(`Author: ${data[i].author}`);
+	     			  row1Cell[1].appendChild(node);
+	     			  node = document.createTextNode(`Amount: \$${data[i].amount}`);
+	     			  row1Cell[2].appendChild(node);
+	     			  //Append the cells to row 1
+	     			  row1.appendChild(row1Cell[0]);
+	     			  row1.appendChild(row1Cell[1]);
+	     			  row1.appendChild(row1Cell[2]);
+	     			  //----------------------------------------
+	     			  //Dress up row 2--------------------------
+	     			  //Create each cell
+	     			  let row2Cell = document.createElement('div');
+	     			  //Give each cell the proper attributes
+	     			  row2Cell.setAttribute('class', "col-sm-12 col-md-12 col-lg-12");
+	     			  //Give each cell its contents
+	     			  node = document.createTextNode(`Description: ${data[i].description}`);
+	     			  row2Cell.appendChild(node);
+	     			  //Append the cells to row 1
+	     			  row2.appendChild(row2Cell);
+	     			  //----------------------------------------
+	     			  //Dress up row 3--------------------------
+	     			  //Create each cell
+	     			  let row3Cell = [document.createElement('div'),
+	     			  document.createElement('div'),
+	     			  document.createElement('div')];
+	     			  //Give each cell the proper attributes
+	     			  row3Cell[0].setAttribute('class', "col-sm-6 col-md-3 col-lg-3");
+	     			  row3Cell[1].setAttribute('class', "col-sm-6 col-md-3 col-lg-3");
+	     			  row3Cell[2].setAttribute('class', "col-sm-6 col-md-3 col-lg-3");
+	     			  //Give each cell its contents
+	     			  node = document.createTextNode(`Type: ${data[i].type}`);
+	     			  row3Cell[0].appendChild(node);
+	     			  node = document.createTextNode(`Status: ${data[i].status}`);
+	     			  row3Cell[1].appendChild(node);
+	     			  node = document.createTextNode(`Resolver: ${data[i].resolver}`);
+	     			  row3Cell[2].appendChild(node);
+	     			  //Append the cells to row 1
+	     			  row3.appendChild(row3Cell[0]);
+	     			  row3.appendChild(row3Cell[1]);
+	     			  row3.appendChild(row3Cell[2]);
+	     			  //----------------------------------------
+	     			  //Dress up row 4--------------------------
+	     			  //Create each cell
+	     			  let row4Cell = [document.createElement('div'),
+	     			  document.createElement('div')];
+	     			  //Give each cell the proper attributes
+	     			  row4Cell[0].setAttribute('class', "col-sm-6 col-md-6 col-lg-6");
+	     			  row4Cell[1].setAttribute('class', "col-sm-6 col-md-6 col-lg-6");
+	     			 
+	     			  //Give each cell its contents
+	     			  let sub = data[i].submitted;
+	     			  node = document.createTextNode(`Submitted: ${sub.year}-${monCon(sub.monthValue)}-${sub.dayOfMonth} ${sub.hour}:${sub.minute}:${sub.second}`);
+	     			  row4Cell[0].appendChild(node);
+	     			  let res = data[i].resolved;
+	     			  if(res === null) node = document.createTextNode('Unresolved');
+	     			  else node = document.createTextNode(`Resolved: ${res.year}-${monCon(res.monthValue)}-${res.dayOfMonth} ${res.hour}:${res.minute}:${res.second}`);
+	     			  row4Cell[1].appendChild(node);
+	     			  
+	     			  //Append the cells to row 1
+	     			  row4.appendChild(row4Cell[0]);
+	     			  row4.appendChild(row4Cell[1]);
+	     			  
+	     			  //----------------------------------------
+	     		  }
+	     		  
+	     	  }
+	     }
+	     function monCon(monthVal){
+	    	 switch(monthVal){
+	    	 case(1): return 'Jan';
+	    	 case(2): return 'Feb';
+	    	 case(3): return 'Mar';
+	    	 case(4): return 'Apr';
+	    	 case(5): return 'May';
+	    	 case(6): return 'Jun';
+	    	 case(7): return 'Jul';
+	    	 case(8): return 'Aug';
+	    	 case(9): return 'Sep';
+	    	 case(10): return 'Oct';
+	    	 case(11): return 'Nov';
+	    	 case(12): return 'Dec';
+	    	 
+	    	 }
+	     }
+	     
+	     xhr.open("GET", url);
+	     xhr.send();
+     </script> 
 </body>
 
 </html>

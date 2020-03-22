@@ -33,6 +33,15 @@
   	<url-pattern>/newRequest</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>ViewReimbServlet</servlet-name>
+  	<servlet-class>com.revature.servlets.ViewReimbServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ViewReimbServlet</servlet-name>
+  	<url-pattern>/viewRequest</url-pattern>
+  </servlet-mapping>
+  
   <filter>
   	<filter-name>cors</filter-name>
   	<filter-class>com.revature.cors.CorsFilter</filter-class>
