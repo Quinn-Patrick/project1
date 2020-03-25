@@ -13,6 +13,43 @@ public class Reimb {
 	private int status;
 	private int type;
 	
+	private String authorName;
+	private String resolverName;
+	private String statusName;
+	private String typeName;
+	
+	public String getAuthorName() {
+		return authorName;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+	public String getResolverName() {
+		return resolverName;
+	}
+
+	public void setResolverName(String resolverName) {
+		this.resolverName = resolverName;
+	}
+
+	public String getStatusName() {
+		return statusName;
+	}
+
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
+
+	public String getTypeName() {
+		return typeName;
+	}
+
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}
+
 	public Reimb() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -110,7 +147,8 @@ public class Reimb {
 	public String toString() {
 		return "Reimb [reimbId=" + reimbId + ", amount=" + amount + ", submitted=" + submitted + ", resolved="
 				+ resolved + ", description=" + description + ", author=" + author + ", resolver=" + resolver
-				+ ", status=" + status + ", type=" + type + "]";
+				+ ", status=" + status + ", type=" + type + ", authorName=" + authorName + ", resolverName="
+				+ resolverName + ", statusName=" + statusName + ", typeName=" + typeName + "]";
 	}
 
 	
@@ -122,13 +160,17 @@ public class Reimb {
 		temp = Double.doubleToLongBits(amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + author;
+		result = prime * result + ((authorName == null) ? 0 : authorName.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + reimbId;
 		result = prime * result + ((resolved == null) ? 0 : resolved.hashCode());
 		result = prime * result + resolver;
+		result = prime * result + ((resolverName == null) ? 0 : resolverName.hashCode());
 		result = prime * result + status;
+		result = prime * result + ((statusName == null) ? 0 : statusName.hashCode());
 		result = prime * result + ((submitted == null) ? 0 : submitted.hashCode());
 		result = prime * result + type;
+		result = prime * result + ((typeName == null) ? 0 : typeName.hashCode());
 		return result;
 	}
 
@@ -145,6 +187,11 @@ public class Reimb {
 			return false;
 		if (author != other.author)
 			return false;
+		if (authorName == null) {
+			if (other.authorName != null)
+				return false;
+		} else if (!authorName.equals(other.authorName))
+			return false;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -159,7 +206,17 @@ public class Reimb {
 			return false;
 		if (resolver != other.resolver)
 			return false;
+		if (resolverName == null) {
+			if (other.resolverName != null)
+				return false;
+		} else if (!resolverName.equals(other.resolverName))
+			return false;
 		if (status != other.status)
+			return false;
+		if (statusName == null) {
+			if (other.statusName != null)
+				return false;
+		} else if (!statusName.equals(other.statusName))
 			return false;
 		if (submitted == null) {
 			if (other.submitted != null)
@@ -167,6 +224,11 @@ public class Reimb {
 		} else if (!submitted.equals(other.submitted))
 			return false;
 		if (type != other.type)
+			return false;
+		if (typeName == null) {
+			if (other.typeName != null)
+				return false;
+		} else if (!typeName.equals(other.typeName))
 			return false;
 		return true;
 	}

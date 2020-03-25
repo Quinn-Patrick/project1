@@ -43,7 +43,7 @@ public class UserDaoImp implements UserDao {
 						res.getString("ers_first_name"),
 						res.getString("ers_last_name"),
 						res.getString("user_email"),
-						res.getInt("user_role"));
+						res.getInt("user_role_id"));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();

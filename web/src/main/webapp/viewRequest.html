@@ -23,6 +23,10 @@
     
     
     <script>
+    	 let userObject = JSON.parse(sessionStorage.getItem("currentUser"));
+    	 let permission = userObject.role;
+    	 console.log(userObject + ", " + typeof(userObject));
+    	 console.log(permission);
 	     let xhr = new XMLHttpRequest;
 	     let url = "http://localhost:8080/project1web/viewRequest";
 	     xhr.onreadystatechange = function() {
@@ -30,7 +34,7 @@
 	     		  console.log(this.responseText);
 	     		  data = JSON.parse(this.responseText);
 	     		  for(i = 0; i < data.length; i++){
-	     			  
+	     			  currentId = data[i].reimbId;
 	     			  //Put in the main four rows-------------
 	     			  let row1 = document.createElement('div');
 	     			  row1.setAttribute('class', 'row');
@@ -64,7 +68,7 @@
 	     			  //Give each cell its contents
 	     			  let node = document.createTextNode(`ID: ${data[i].reimbId}`);
 	     			  row1Cell[0].appendChild(node);
-	     			  node = document.createTextNode(`Author: ${data[i].author}`);
+	     			  node = document.createTextNode(`Author: ${data[i].authorName}`);
 	     			  row1Cell[1].appendChild(node);
 	     			  node = document.createTextNode(`Amount: \$${data[i].amount}`);
 	     			  row1Cell[2].appendChild(node);
@@ -94,11 +98,11 @@
 	     			  row3Cell[1].setAttribute('class', "col-sm-6 col-md-3 col-lg-3");
 	     			  row3Cell[2].setAttribute('class', "col-sm-6 col-md-3 col-lg-3");
 	     			  //Give each cell its contents
-	     			  node = document.createTextNode(`Type: ${data[i].type}`);
+	     			  node = document.createTextNode(`Type: ${data[i].typeName}`);
 	     			  row3Cell[0].appendChild(node);
-	     			  node = document.createTextNode(`Status: ${data[i].status}`);
+	     			  node = document.createTextNode(`Status: ${data[i].statusName}`);
 	     			  row3Cell[1].appendChild(node);
-	     			  node = document.createTextNode(`Resolver: ${data[i].resolver}`);
+	     			  node = document.createTextNode(`Resolver: ${data[i].resolverName}`);
 	     			  row3Cell[2].appendChild(node);
 	     			  //Append the cells to row 1
 	     			  row3.appendChild(row3Cell[0]);
@@ -127,6 +131,25 @@
 	     			  row4.appendChild(row4Cell[1]);
 	     			  
 	     			  //----------------------------------------
+	     			  
+	     			  //Add row 5 only if the user is a finance manager
+	     			  if(permission == 1){
+	     				  let row5 = document.createElement('div');
+		     			  row5.setAttribute('class', 'row');
+		     			  document.getElementById('block').appendChild(row5);
+		     			  let approveButton = document.createElement('button');
+		     			  approveButton.innerHTML = "Approve";
+		     			  approveButton.setAttribute('class', 'btn btn-success');
+		     			  approveButton.setAttribute('onclick', 'approveRequest(' + currentId + ')');
+		     			  row5.appendChild(approveButton);
+		     			  
+		     			  let denyButton = document.createElement('button');
+		     			  denyButton.innerHTML = "Deny";
+		     			  denyButton.setAttribute('class', 'btn btn-warning');
+		     			  denyButton.setAttribute('onclick', 'denyRequest(' + currentId + ')');
+		     			  row5.appendChild(approveButton);
+		     			  
+	     			  }
 	     		  }
 	     		  
 	     	  }
@@ -151,6 +174,41 @@
 	     
 	     xhr.open("GET", url);
 	     xhr.send();
+	     
+	     function approveRequest(req){
+	    	 let xhr = new XMLHttpRequest();
+	    	 let basicdata = {
+	    			 reimbId: req,
+	    			 approved: true,
+	    	 }
+	    	 let url = "http://localhost:8080/project1web/viewRequest";
+	    	 xhr.onreadystatechange = function(){
+	    		 if(this.readystate == 4 && this.status == 200){
+	    			 location.reload();
+	    		 }
+	    		 
+	    	 }
+	    	 xhr.open("POST", url);
+	    	 xhr.send(JSON.stringify(basicdata));
+	     }
+	     
+	     function denyRequest(req){
+	    	 let xhr = new XMLHttpRequest();
+	    	 let basicdata = {
+	    			 reimbId: req,
+	    			 approved: false,
+	    	 }
+	    	 let url = "http://localhost:8080/project1web/viewRequest";
+	    	 xhr.onreadystatechange = function(){
+	    		 if(this.readystate == 4 && this.status == 200){
+	    			 location.reload();
+	    		 }
+	    		 
+	    	 }
+	    	 xhr.open("POST", url);
+	    	 xhr.send(JSON.stringify(basicdata));
+	     }
+	     
      </script> 
 </body>
 

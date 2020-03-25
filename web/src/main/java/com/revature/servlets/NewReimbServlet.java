@@ -7,8 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.revature.models.Reimb;
+import com.revature.models.User;
 
 import services.ReimbService;
 
@@ -30,6 +32,11 @@ public class NewReimbServlet extends HttpServlet{
 	  protected void doPost(HttpServletRequest req, HttpServletResponse res)
 	    throws IOException, ServletException {
 
+    	
+    	 HttpSession session = req.getSession(true);
+    	 
+    	 if(session.getAttribute("currentUser") == null) res.sendRedirect("http://localhost:8080/project1web/login.html");
+    	 
 		 res.setContentType("application/json");
 		 double amount = Double.parseDouble(req.getParameter("amount"));
 		 int type = 0;
@@ -46,8 +53,7 @@ public class NewReimbServlet extends HttpServlet{
 		 
 		 String desc = req.getParameter("desc");
 		 
-		 
-		 Reimb r = new Reimb(amount, LocalDateTime.now(),  null, desc, 0, -1, 0, type);
+		 Reimb r = new Reimb(amount, LocalDateTime.now(),  null, desc, ((User) session.getAttribute("currentUser")).getUserId(), -1, 0, type);
 		 ReimbService.storeReimb(r);
 		 
 	 }

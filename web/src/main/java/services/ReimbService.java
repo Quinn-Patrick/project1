@@ -20,4 +20,8 @@ public class ReimbService {
 	public static List<Reimb> retrieveAllReimbs(){
 		return data.retrieveAllReimbs();
 	}
+	
+	public static void deleteReimb(int id) {
+		data.deleteReimb(id);
+	}
 }

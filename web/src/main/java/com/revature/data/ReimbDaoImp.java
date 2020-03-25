@@ -39,8 +39,9 @@ public class ReimbDaoImp implements ReimbDao {
 				stmt.setString(4, reimb.getDescription());
 				stmt.setInt(5, reimb.getAuthor());
 				stmt.setInt(6, reimb.getResolver());
-				stmt.setInt(8, reimb.getType());
 				stmt.setInt(7, reimb.getStatus());
+				stmt.setInt(8, reimb.getType());
+				
 				
 				
 				
@@ -96,6 +97,31 @@ public class ReimbDaoImp implements ReimbDao {
 			
 			newR.setReimbId(res.getInt("reimb_id"));
 			
+			sql = "SELECT ers_username FROM ers_users WHERE ers_users_id = ?";
+			ResultSet innerResults = cleanAndExecute(conn, sql, ""+newR.getAuthor());
+			innerResults.next();
+			newR.setAuthorName(innerResults.getString("ers_username"));
+			
+			sql = "SELECT ers_username FROM ers_users WHERE ers_users_id = ?";
+			innerResults = cleanAndExecute(conn, sql, ""+newR.getResolver());
+			innerResults.next();
+			newR.setResolverName(innerResults.getString("ers_username"));
+			
+			sql = "SELECT reimb_status FROM ers_reimbursement_status WHERE reimb_status_id = ?";
+			innerResults = cleanAndExecute(conn, sql, ""+newR.getStatus());
+			innerResults.next();
+			newR.setStatusName(innerResults.getString("reimb_status"));
+			
+			sql = "SELECT reimb_type FROM ers_reimbursement_type WHERE reimb_type_id = ?";
+			innerResults = cleanAndExecute(conn, sql, ""+newR.getType());
+			innerResults.next();
+			newR.setStatusName(innerResults.getString("reimb_type"));
+			
+			
+			
+			
+			
+			
 			return newR; 
 		}catch(SQLException e){
 			logger.error("SQL exception:\n" + e.getStackTrace());
@@ -120,10 +146,33 @@ public class ReimbDaoImp implements ReimbDao {
 						res.getString("reimb_description"),
 						res.getInt("reimb_author"),
 						res.getInt("reimb_resolver"),
-						res.getInt("reimb_type_id"),
-						res.getInt("reimb_status_id"));
+						res.getInt("reimb_status_id"),
+						res.getInt("reimb_type_id"));
+				
 				nextR.setReimbId(res.getInt("reimb_id"));
+				
+				sql = "SELECT ers_username FROM ers_users WHERE ers_users_id = ?";
+				ResultSet innerResults = cleanAndExecute(conn, sql, ((Integer)nextR.getAuthor()).toString());
+				innerResults.next();
+				nextR.setAuthorName(innerResults.getString("ers_username"));
+				
+				sql = "SELECT ers_username FROM ers_users WHERE ers_users_id = ?";
+				innerResults = cleanAndExecute(conn, sql, ""+nextR.getResolver());
+				innerResults.next();
+				nextR.setResolverName(innerResults.getString("ers_username"));
+				
+				sql = "SELECT reimb_status FROM ers_reimbursement_status WHERE reimb_status_id = ?";
+				innerResults = cleanAndExecute(conn, sql, ""+nextR.getStatus());
+				innerResults.next();
+				nextR.setStatusName(innerResults.getString("reimb_status"));
+				
+				sql = "SELECT reimb_type FROM ers_reimbursement_type WHERE reimb_type_id = ?";
+				innerResults = cleanAndExecute(conn, sql, ""+nextR.getType());
+				innerResults.next();
+				nextR.setTypeName(innerResults.getString("reimb_type"));
+				
 				allReimb.add(nextR);
+				
 				
 			}
 			return allReimb;

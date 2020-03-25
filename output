@@ -1,0 +1,17 @@
+total 65
+drwxr-xr-x 1 Quinn 197121     0 Mar 24 11:06 ./
+drwxr-xr-x 1 Quinn 197121     0 Mar 20 17:59 ../
+-rw-r--r-- 1 Quinn 197121  2266 Mar 16 13:56 .classpath
+drwxr-xr-x 1 Quinn 197121     0 Mar 21 20:57 .git/
+-rw-r--r-- 1 Quinn 197121   565 Mar 16 11:25 .project
+drwxr-xr-x 1 Quinn 197121     0 Mar 16 11:25 .settings/
+drwxr-xr-x 1 Quinn 197121     0 Mar 16 11:24 application/
+-rw-r--r-- 1 Quinn 197121 21535 Mar 15 13:40 cssTest.html
+-rw-r--r-- 1 Quinn 197121   752 Mar 14 09:46 frontPage.html
+-rw-r--r-- 1 Quinn 197121  2253 Mar 15 14:46 newRequest.html
+-rw-r--r-- 1 Quinn 197121     0 Mar 24 11:06 output
+-rw-r--r-- 1 Quinn 197121  1271 Mar 16 11:26 pom.xml
+drwxr-xr-x 1 Quinn 197121     0 Mar 16 11:25 src/
+drwxr-xr-x 1 Quinn 197121     0 Mar 16 11:25 target/
+-rw-r--r-- 1 Quinn 197121  1626 Mar 15 13:05 viewRequest.html
+drwxr-xr-x 1 Quinn 197121     0 Mar 20 18:02 web/
