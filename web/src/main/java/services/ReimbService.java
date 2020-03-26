@@ -2,6 +2,8 @@ package services;
 
 import java.util.List;
 
+import javax.servlet.http.Part;
+
 import com.revature.data.ReimbDao;
 import com.revature.data.ReimbDaoImp;
 import com.revature.models.Reimb;
@@ -11,6 +13,7 @@ public class ReimbService {
 	
 	public static void storeReimb(Reimb r) {
 		data.storeReimb(r);
+		System.out.println("Successfully stored reimb.");
 	}
 	
 	public static Reimb retrieveReimb(int i) {
@@ -27,5 +30,10 @@ public class ReimbService {
 	
 	public static List<Reimb> retrieveAllUserReimbs(int userId){
 		return data.retrieveAllUserReimbs(userId);
+	}
+	
+	public static void uploadImage(int reimbId, Part image) {
+		data.uploadImage(reimbId, image);
+		
 	}
 }

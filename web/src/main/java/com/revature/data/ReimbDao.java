@@ -2,6 +2,8 @@ package com.revature.data;
 
 import java.util.List;
 
+import javax.servlet.http.Part;
+
 import com.revature.models.Reimb;
 
 public interface ReimbDao {
@@ -12,4 +14,5 @@ public interface ReimbDao {
 	public List<Reimb> retrieveAllUserReimbs(int userId);
 	
 	public void deleteReimb(int reimbId);
+	public void uploadImage(int reimbId, Part image);
 }

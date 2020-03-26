@@ -1,1 +1,214 @@
 2020-03-25 20:17:06 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-25 21:34:44 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-25 21:34:44 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-25 21:35:26 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-25 22:08:37 ERROR ReimbDaoImp:79 - SQL exception:
+[Ljava.lang.StackTraceElement;@61c2464e
+2020-03-25 22:08:37 INFO  LoginServlet:62 - Created new reimbursement.
+2020-03-25 22:09:01 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-25 22:09:01 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-25 22:10:19 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-25 22:10:19 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-25 22:10:33 ERROR LoginServlet:115 - Error with the image (no surprise there)[Ljava.lang.StackTraceElement;@2ef977ef
+2020-03-25 22:10:33 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-25 22:13:33 ERROR ReimbDaoImp:79 - SQL exception:
+[Ljava.lang.StackTraceElement;@597567a7
+2020-03-25 22:13:33 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-25 22:13:51 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-25 22:13:51 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-25 22:14:08 ERROR LoginServlet:116 - Error with the image (no surprise there)[Ljava.lang.StackTraceElement;@6f714b41
+2020-03-25 22:14:08 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-25 22:15:40 ERROR ReimbDaoImp:79 - SQL exception:
+[Ljava.lang.StackTraceElement;@48d5ceb7
+2020-03-25 22:15:40 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-25 22:15:57 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-25 22:15:57 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-25 22:16:09 ERROR LoginServlet:117 - Error with the image (no surprise there)[Ljava.lang.StackTraceElement;@680074d1
+2020-03-25 22:16:09 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 08:50:50 ERROR ReimbDaoImp:79 - SQL exception:
+[Ljava.lang.StackTraceElement;@232f3908
+2020-03-26 08:50:50 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 16:54:43 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 16:54:44 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 16:54:54 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 16:55:38 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 16:57:28 ERROR ReimbDaoImp:79 - SQL exception:
+[Ljava.lang.StackTraceElement;@407e4d8d
+2020-03-26 16:57:28 ERROR ReimbDaoImp:79 - SQL exception:
+[Ljava.lang.StackTraceElement;@3cbd77b
+2020-03-26 16:57:28 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 16:57:28 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 16:59:00 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 16:59:00 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 16:59:10 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 16:59:28 ERROR ReimbDaoImp:79 - SQL exception:
+[Ljava.lang.StackTraceElement;@34ca20d4
+2020-03-26 16:59:28 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 16:59:41 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 16:59:41 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 16:59:53 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:01:44 ERROR ReimbDaoImp:79 - SQL exception:
+[Ljava.lang.StackTraceElement;@16ba0063
+2020-03-26 17:01:44 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:02:08 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:02:09 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:02:20 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:03:44 ERROR ReimbDaoImp:79 - SQL exception:
+[Ljava.lang.StackTraceElement;@7a663746
+2020-03-26 17:03:44 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:05:53 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:05:53 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:06:08 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:09:00 ERROR ReimbDaoImp:79 - SQL exception:
+[Ljava.lang.StackTraceElement;@608e0ba8
+2020-03-26 17:09:00 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:09:22 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:09:22 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:09:36 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:12:00 ERROR ReimbDaoImp:79 - SQL exception:
+[Ljava.lang.StackTraceElement;@213361b9
+2020-03-26 17:12:00 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:12:17 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:12:17 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:12:29 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:13:43 ERROR ReimbDaoImp:80 - SQL exception:
+[Ljava.lang.StackTraceElement;@1294d32b
+2020-03-26 17:13:43 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:14:00 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:14:01 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:14:13 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:17:14 ERROR ReimbDaoImp:83 - SQL exception:
+[Ljava.lang.StackTraceElement;@3163a5fd
+2020-03-26 17:17:14 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:17:37 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:17:38 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:17:52 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:18:27 ERROR ReimbDaoImp:86 - SQL exception:
+[Ljava.lang.StackTraceElement;@58822ecb
+2020-03-26 17:18:27 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:18:50 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:18:51 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:19:03 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:21:20 ERROR ReimbDaoImp:86 - SQL exception:
+[Ljava.lang.StackTraceElement;@57d3bf24
+2020-03-26 17:21:20 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:22:03 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:22:04 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:22:19 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:25:30 ERROR ReimbDaoImp:86 - SQL exception:
+oracle.jdbc.driver.T4CCallableStatement.executeForRows(T4CCallableStatement.java:929)
+2020-03-26 17:25:30 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:25:50 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:25:51 INFO  LoginServlet:68 - Incorrect password from user1.
+2020-03-26 17:26:02 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:26:02 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:26:13 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - oracle.jdbc.driver.T4CCallableStatement.executeForRows(T4CCallableStatement.java:929)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1119)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3780)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - oracle.jdbc.driver.T4CCallableStatement.executeInternal(T4CCallableStatement.java:1300)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3822)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1165)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - com.revature.data.ReimbDaoImp.storeReimb(ReimbDaoImp.java:66)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - services.ReimbService.storeReimb(ReimbService.java:13)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - com.revature.servlets.NewReimbServlet.doPost(NewReimbServlet.java:68)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - com.revature.cors.CorsFilter.doFilter(CorsFilter.java:22)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:688)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:87 - java.lang.Thread.run(Unknown Source)
+2020-03-26 17:28:41 ERROR ReimbDaoImp:89 - SQL exception:
+oracle.jdbc.driver.T4CCallableStatement.executeForRows(T4CCallableStatement.java:929)
+2020-03-26 17:28:41 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:36:06 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:36:06 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:42:17 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:42:17 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:42:26 ERROR ReimbDaoImp:252 - SQL exception:
+[Ljava.lang.StackTraceElement;@6a41c621
+2020-03-26 17:44:00 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:44:00 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:44:10 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:44:10 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:46:40 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:46:41 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:46:53 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:46:53 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 17:53:30 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 17:53:31 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 17:53:40 INFO  ReimbDaoImp:27 - Attempting to log new reimbursement.
+2020-03-26 17:53:40 INFO  LoginServlet:69 - Created new reimbursement.
+2020-03-26 18:44:56 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 18:44:56 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 18:45:09 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 18:45:09 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 18:47:16 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 18:47:17 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 18:47:29 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 18:47:29 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 18:50:08 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 18:50:09 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 18:50:33 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 18:50:33 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 18:52:17 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 18:52:17 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 18:52:31 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 18:52:31 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 18:53:52 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 18:53:52 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 18:54:03 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 18:54:04 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 18:54:08 ERROR ReimbDaoImp:372 - oracle.jdbc.driver.OraclePreparedStatement.processCompletedBindRow(OraclePreparedStatement.java:2086)
+2020-03-26 18:57:04 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 18:57:04 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 18:57:14 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 18:57:14 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 18:57:19 ERROR ReimbDaoImp:373 - oracle.jdbc.driver.OraclePreparedStatement.processCompletedBindRow(OraclePreparedStatement.java:2086)
+2020-03-26 18:58:11 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 18:58:12 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 18:58:22 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 18:58:22 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 18:58:26 ERROR ReimbDaoImp:373 - oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+2020-03-26 19:00:17 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 19:00:17 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 19:00:28 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 19:00:28 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 19:00:35 ERROR ReimbDaoImp:373 - oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494)
+2020-03-26 19:01:09 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 19:01:09 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 19:01:20 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 19:01:20 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 19:07:07 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 19:07:07 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 19:07:17 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 19:07:17 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 19:08:22 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 19:08:22 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 19:08:31 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 19:08:31 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 19:11:14 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 19:11:15 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 19:11:24 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 19:11:24 INFO  LoginServlet:70 - Created new reimbursement.

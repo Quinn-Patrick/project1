@@ -5,6 +5,14 @@
     <welcome-file>login.html</welcome-file>
   </welcome-file-list>
   
+  <context-param> 
+      <description>Location to store uploaded file</description> 
+      <param-name>file-upload</param-name> 
+      <param-value>
+         C:\\Users\\Quinn\\Documents\\revTrainingJava\\project1gitRepo\\project1\\web\\src\\main\\resources\\
+      </param-value> 
+   </context-param>
+  
   <context-param>
   	<param-name>ContextParam</param-name>
   	<param-value>allServlets</param-value>
@@ -44,6 +52,15 @@
   <servlet-mapping>
   	<servlet-name>ViewReimbServlet</servlet-name>
   	<url-pattern>/viewRequest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ImageUploadServlet</servlet-name>
+  	<servlet-class>com.revature.servlets.UploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ImageUploadServlet</servlet-name>
+  	<url-pattern>/imageUpload</url-pattern>
   </servlet-mapping>
   
   <filter>

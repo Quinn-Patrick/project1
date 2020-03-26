@@ -1,9 +1,10 @@
 package com.revature.models;
 
 import java.time.LocalDateTime;
+import java.util.Random;
 
 public class Reimb {
-	private int reimbId = -1;
+	private int reimbId;
 	private double amount;
 	private LocalDateTime submitted;
 	private LocalDateTime resolved;
@@ -58,6 +59,8 @@ public class Reimb {
 	public Reimb(double amount, LocalDateTime submitted, LocalDateTime resolved, String description, int author, int resolver,
 			int status, int type) {
 		super();
+		Random r = new Random();
+		reimbId = Math.abs(r.nextInt());
 		this.amount = amount;
 		this.submitted = submitted;
 		this.description = description;
