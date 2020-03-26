@@ -24,4 +24,8 @@ public class ReimbService {
 	public static void deleteReimb(int id) {
 		data.deleteReimb(id);
 	}
+	
+	public static List<Reimb> retrieveAllUserReimbs(int userId){
+		return data.retrieveAllUserReimbs(userId);
+	}
 }

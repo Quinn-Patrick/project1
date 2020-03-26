@@ -52,9 +52,7 @@
 	     			  document.getElementById('block').appendChild(row4);
 	     			  //----------------------------------------
 	     			  
-	     			  //add a rule to help keep things organized
-	     			  let hr = document.createElement('hr');
-	     			  document.getElementById('block').appendChild(hr);
+	     			  
 	     			  
 	     			  //Dress up row 1--------------------------
 	     			  //Create each cell
@@ -145,13 +143,15 @@
 		     			  
 		     			  let denyButton = document.createElement('button');
 		     			  denyButton.innerHTML = "Deny";
-		     			  denyButton.setAttribute('class', 'btn btn-warning');
+		     			  denyButton.setAttribute('class', 'btn btn-danger');
 		     			  denyButton.setAttribute('onclick', 'denyRequest(' + currentId + ')');
-		     			  row5.appendChild(approveButton);
+		     			  row5.appendChild(denyButton);
 		     			  
 	     			  }
+	     			//add a rule to help keep things organized
+	     			  let hr = document.createElement('hr');
+	     			  document.getElementById('block').appendChild(hr);
 	     		  }
-	     		  
 	     	  }
 	     }
 	     function monCon(monthVal){
@@ -176,15 +176,21 @@
 	     xhr.send();
 	     
 	     function approveRequest(req){
+	    	 let emp = JSON.parse(sessionStorage.getItem("currentUser"));
+	    	 let resName = emp.userId;
+	    	 
 	    	 let xhr = new XMLHttpRequest();
 	    	 let basicdata = {
 	    			 reimbId: req,
 	    			 approved: true,
+	    			 resolver: resName,
 	    	 }
 	    	 let url = "http://localhost:8080/project1web/viewRequest";
 	    	 xhr.onreadystatechange = function(){
-	    		 if(this.readystate == 4 && this.status == 200){
-	    			 location.reload();
+	    		 console.log('Ready state changed to ' + this.readyState);
+	    		 if(xhr.readyState == 4 && xhr.status == 200){
+	    			 console.log('Made it here.');
+	    			 window.location = "http://localhost:8080/project1web/frontPage.html";
 	    		 }
 	    		 
 	    	 }
@@ -193,15 +199,22 @@
 	     }
 	     
 	     function denyRequest(req){
+	    	 let emp = JSON.parse(sessionStorage.getItem("currentUser"));
+	    	 let resName = emp.username;
+	    	 
 	    	 let xhr = new XMLHttpRequest();
 	    	 let basicdata = {
 	    			 reimbId: req,
 	    			 approved: false,
+	    			 resolver: userId,
 	    	 }
 	    	 let url = "http://localhost:8080/project1web/viewRequest";
 	    	 xhr.onreadystatechange = function(){
-	    		 if(this.readystate == 4 && this.status == 200){
-	    			 location.reload();
+	    		 console.log('Ready state changed to ' + xhr.readyState);
+	    		 console.log('status changed to ' + xhr.status);
+	    		 if(xhr.readyState == 4 && xhr.status == 200){
+	    			 console.log('Made it here.');
+	    			 window.location = "http://localhost:8080/project1web/frontPage.html";
 	    		 }
 	    		 
 	    	 }

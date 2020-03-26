@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.User;
 
@@ -19,6 +21,7 @@ import services.UserService;
 
 public class LoginServlet extends HttpServlet{
 
+	private Logger log = Logger.getLogger(LoginServlet.class);
 	private static final ObjectMapper om = new ObjectMapper();
 	/**
 	 * 
@@ -48,9 +51,9 @@ public class LoginServlet extends HttpServlet{
 		password = jsonSplit[7];
 		
 		User u = UserService.retrieveUser(username);
-		System.out.println("Attempting to pull user " + username);
+		log.info("Attempting to pull user " + username);
 		if(u == null) {
-			System.out.println("Invalid User");
+			//System.out.println("Invalid User");
 			res.getWriter().println(om.writeValueAsString(u));
 		}else {
 			try {
@@ -58,17 +61,17 @@ public class LoginServlet extends HttpServlet{
 					HttpSession session = req.getSession();
 					session.setAttribute("currentUser", u);
 					res.getWriter().println(om.writeValueAsString(u));
-					System.out.println(om.writeValueAsString(u));
-					System.out.println("Login should have been successful.");
+					log.info("Successful login from " + u.getUsername() + ".");
 					//res.sendRedirect("http://localhost:8080/project1web/frontPage.html");
 				}else {
 					res.getWriter().println(om.writeValueAsString(null));
+					log.info("Incorrect password from " + u.getUsername() + ".");
 					System.out.println("Wrong password.");
 				}
 			} catch (NoSuchAlgorithmException e) {
-				e.printStackTrace();
+				log.error("Error hasing (how did you make this happen?)");
 			} catch (InvalidKeySpecException e) {
-				e.printStackTrace();
+				log.error("Error hasing (how did you make this happen?)");
 			}
 		}
 	 }

@@ -23,7 +23,7 @@ public class ReimbDaoImp implements ReimbDao {
 	@Override
 	public int storeReimb(Reimb reimb) {
 		try(Connection conn = ConnectionUtil.getConnection()){
-			if(reimb.getReimbId() == -1 || newReimb(reimb.getReimbId())) {
+			if(reimb.getReimbId() == -1) {
 				logger.info("Attempting to log new reimbursement.");
 				String sql = "CALL insert_into_ers_reimbursement(?,?,?,?,?,?,?,?)";
 				
@@ -60,19 +60,23 @@ public class ReimbDaoImp implements ReimbDao {
 				ResultSet res = stmt.executeQuery();
 				
 				reimb.setReimbId(res.getInt("reimb_id"));
-				return res.getInt("reimb_id");
-			}else {
-				String sql = "CALL update_ers_reimbursement(?,?,?,?)";
-				cleanAndExecute(conn, sql,
-						((Integer)reimb.getReimbId()).toString(),
-						dateFormat(reimb.getResolved()),
-						((Integer)reimb.getResolver()).toString(),
-						((Integer)reimb.getStatus()).toString());
 				return reimb.getReimbId();
-			}
+			}else {
+				System.out.println("Updating request...");
+				String sql = "CALL update_ers_reimbursement(?,?,?,?)";
+				CallableStatement stmt = conn.prepareCall(sql);
+				stmt.setInt(1, reimb.getReimbId());
+				LocalDateTime date = reimb.getResolved();
+				stmt.setTimestamp(2, new Timestamp(date.getYear(), date.getMonthValue(), date.getDayOfMonth(),
+				date.getHour(), date.getMinute(), date.getSecond(), 0));
+				stmt.setInt(3, reimb.getResolver());
+				stmt.setInt(4, reimb.getStatus());
+				
+				stmt.executeQuery();
+				return reimb.getReimbId();			
+		}
 		}catch(SQLException e) {
 			logger.error("SQL exception:\n" + e.getStackTrace());
-			e.printStackTrace();
 			return -1;
 		}
 
@@ -92,8 +96,8 @@ public class ReimbDaoImp implements ReimbDao {
 					res.getString("reimb_description"),
 					res.getInt("reimb_author"),
 					res.getInt("reimb_resolver"),
-					res.getInt("reimb_type_id"),
-					res.getInt("reimb_status_id"));
+					res.getInt("reimb_status_id"),
+					res.getInt("reimb_type_id"));
 			
 			newR.setReimbId(res.getInt("reimb_id"));
 			
@@ -108,6 +112,7 @@ public class ReimbDaoImp implements ReimbDao {
 			newR.setResolverName(innerResults.getString("ers_username"));
 			
 			sql = "SELECT reimb_status FROM ers_reimbursement_status WHERE reimb_status_id = ?";
+			System.out.println(newR.getStatus());
 			innerResults = cleanAndExecute(conn, sql, ""+newR.getStatus());
 			innerResults.next();
 			newR.setStatusName(innerResults.getString("reimb_status"));
@@ -125,7 +130,6 @@ public class ReimbDaoImp implements ReimbDao {
 			return newR; 
 		}catch(SQLException e){
 			logger.error("SQL exception:\n" + e.getStackTrace());
-			e.printStackTrace();
 			return null;
 		}
 	}
@@ -190,7 +194,6 @@ public class ReimbDaoImp implements ReimbDao {
 			cleanAndExecute(conn, sql, ((Integer)reimbId).toString());
 		}catch(SQLException e) {
 			logger.error("SQL exception:\n" + e.getStackTrace());
-			e.printStackTrace();
 		}
 	}
 	
@@ -205,16 +208,15 @@ public class ReimbDaoImp implements ReimbDao {
 			return allId;
 		}catch(SQLException e) {
 			logger.error("SQL exception:\n" + e.getStackTrace());
-			e.printStackTrace();
 			return null;
 		}
 		
 	}
 	
-	private boolean newReimb(int reimbId) {
+	/*private boolean newReimb(int reimbId) {
 		if(retrieveAllReimbId().contains(reimbId)) return false;
 		else return true;
-	}
+	}*/
 	
 	private ResultSet cleanAndExecute( Connection conn, String ... sql) {
 		try{
@@ -285,5 +287,58 @@ public class ReimbDaoImp implements ReimbDao {
 	private LocalDateTime dateFormatReverse(Timestamp time) {
 		if(time != null)return time.toLocalDateTime();
 		else return null;
+	}
+
+	@Override
+	public List<Reimb> retrieveAllUserReimbs(int userId) {
+		try(Connection conn = ConnectionUtil.getConnection()){
+			List<Reimb> allReimb = new ArrayList<>();
+			
+			String sql = "SELECT * FROM ers_reimbursement WHERE reimb_author = ?";
+			ResultSet res = cleanAndExecute(conn, sql, ""+userId);
+			
+			while(res.next()) {
+				Reimb nextR = new Reimb(
+						res.getInt("reimb_amount"),
+						dateFormatReverse(res.getTimestamp("reimb_submitted")),
+						dateFormatReverse(res.getTimestamp("reimb_resolved")),
+						res.getString("reimb_description"),
+						res.getInt("reimb_author"),
+						res.getInt("reimb_resolver"),
+						res.getInt("reimb_status_id"),
+						res.getInt("reimb_type_id"));
+				
+				nextR.setReimbId(res.getInt("reimb_id"));
+				
+				sql = "SELECT ers_username FROM ers_users WHERE ers_users_id = ?";
+				ResultSet innerResults = cleanAndExecute(conn, sql, ((Integer)nextR.getAuthor()).toString());
+				innerResults.next();
+				nextR.setAuthorName(innerResults.getString("ers_username"));
+				
+				sql = "SELECT ers_username FROM ers_users WHERE ers_users_id = ?";
+				innerResults = cleanAndExecute(conn, sql, ""+nextR.getResolver());
+				innerResults.next();
+				nextR.setResolverName(innerResults.getString("ers_username"));
+				
+				sql = "SELECT reimb_status FROM ers_reimbursement_status WHERE reimb_status_id = ?";
+				innerResults = cleanAndExecute(conn, sql, ""+nextR.getStatus());
+				innerResults.next();
+				nextR.setStatusName(innerResults.getString("reimb_status"));
+				
+				sql = "SELECT reimb_type FROM ers_reimbursement_type WHERE reimb_type_id = ?";
+				innerResults = cleanAndExecute(conn, sql, ""+nextR.getType());
+				innerResults.next();
+				nextR.setTypeName(innerResults.getString("reimb_type"));
+				
+				allReimb.add(nextR);
+				
+				
+			}
+			return allReimb;
+		}catch(SQLException e) {
+			logger.error("SQL exception:\n" + e.getStackTrace());
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

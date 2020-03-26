@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.revature.models.Reimb;
 import com.revature.models.User;
 
@@ -20,6 +22,8 @@ public class NewReimbServlet extends HttpServlet{
 	 * 
 	 */
 	private static final long serialVersionUID = 1935950909486779986L;
+	
+	private Logger log = Logger.getLogger(LoginServlet.class);
 	
 	@Override
 	  protected void doGet(HttpServletRequest req, HttpServletResponse res)
@@ -55,6 +59,8 @@ public class NewReimbServlet extends HttpServlet{
 		 
 		 Reimb r = new Reimb(amount, LocalDateTime.now(),  null, desc, ((User) session.getAttribute("currentUser")).getUserId(), -1, 0, type);
 		 ReimbService.storeReimb(r);
+		 log.info("Created new reimbursement.");
+		 
 		 
 	 }
 

@@ -9,6 +9,7 @@ public interface ReimbDao {
 	
 	public Reimb retrieveReimb(int reimbId);
 	public List<Reimb> retrieveAllReimbs();
+	public List<Reimb> retrieveAllUserReimbs(int userId);
 	
 	public void deleteReimb(int reimbId);
 }

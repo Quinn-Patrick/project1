@@ -9,10 +9,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.models.User;
 
 public class UserDaoImp implements UserDao {
 
+	Logger log = Logger.getLogger(UserDaoImp.class);
+	
 	public void storeUser(User user) {
 		try(Connection conn = ConnectionUtil.getConnection()){
 			if(newUser(user)) {
@@ -25,6 +29,7 @@ public class UserDaoImp implements UserDao {
 						user.getLastName(), user.getEmail(), ((Integer) user.getRole()).toString());
 			}
 		}catch(SQLException e) {
+			log.error("sql exception:\n" + e.getStackTrace());
 			e.printStackTrace();
 		}
 	}
@@ -46,33 +51,28 @@ public class UserDaoImp implements UserDao {
 						res.getInt("user_role_id"));
 			}
 		}catch(SQLException e) {
+			log.error("sql exception:\n" + e.getStackTrace());
 			e.printStackTrace();
 			return null;
 		}
 		
 	}
 	
-	private User retrieveUser(String username, Connection conn) {
-		try{
-			String sql = "SELECT * FROM ers_users WHERE ers_username = ?";
-			ResultSet res = cleanAndExecute(conn, sql, username);
-			
-			if(!res.next()) return null;
-			else {
-				return new User(res.getInt("ers_users_id"),
-						res.getString("ers_username"),
-						res.getString("ers_password"),
-						res.getString("ers_first_name"),
-						res.getString("ers_last_name"),
-						res.getString("user_email"),
-						res.getInt("user_role"));
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-		
-	}
+	/*
+	 * private User retrieveUser(String username, Connection conn) { try{ String sql
+	 * = "SELECT * FROM ers_users WHERE ers_username = ?"; ResultSet res =
+	 * cleanAndExecute(conn, sql, username);
+	 * 
+	 * if(!res.next()) return null; else { return new
+	 * User(res.getInt("ers_users_id"), res.getString("ers_username"),
+	 * res.getString("ers_password"), res.getString("ers_first_name"),
+	 * res.getString("ers_last_name"), res.getString("user_email"),
+	 * res.getInt("user_role")); } }catch(SQLException e) {
+	 * log.error("sql exception:\n" + e.getStackTrace()); e.printStackTrace();
+	 * return null; }
+	 * 
+	 * }
+	 */
 
 	public List<User> retrieveAllUsers() {
 		try(Connection conn = ConnectionUtil.getConnection()){
@@ -93,6 +93,7 @@ public class UserDaoImp implements UserDao {
 			return allUsers;
 			
 		}catch(SQLException e) {
+			log.error("sql exception:\n" + e.getStackTrace());
 			e.printStackTrace();
 			return null;
 		}
@@ -108,6 +109,7 @@ public class UserDaoImp implements UserDao {
 			}
 			return allUsernames;
 		}catch(SQLException e) {
+			log.error("sql exception:\n" + e.getStackTrace());
 			e.printStackTrace();
 			return null;
 		}
@@ -118,6 +120,7 @@ public class UserDaoImp implements UserDao {
 			String sql = "DELETE FROM ers_users WHERE ers_username = ?";
 			cleanAndExecute(conn, sql, username);
 		}catch(SQLException e) {
+			log.error("sql exception:\n" + e.getStackTrace());
 			e.printStackTrace();
 		}
 
@@ -161,12 +164,9 @@ public class UserDaoImp implements UserDao {
 			//System.out.println("Made it here.");
 			return res;
 		}catch(SQLException e) {
-			if(!sql[0].toLowerCase().contains("connection"))
-				//Driver.logger.error("Connection to database failed.");
-				//e.printStackTrace();
+			log.error("sql exception:\n" + e.getStackTrace());
 			return null;
 		}
-		return null;
 	}
 
 
