@@ -76,8 +76,11 @@ public class ViewReimbServlet extends HttpServlet{
 				log.info("Approved reimb " + id);
 				ReimbService.storeReimb(targetReimb);
 			}else {
-				log.info("Denied and deleted reimb " + id);
-				ReimbService.deleteReimb(id);
+				targetReimb.setStatus(2);
+				targetReimb.setResolver(approver);
+				targetReimb.setResolved(LocalDateTime.now());
+				log.info("Denied reimb " + id);
+				ReimbService.storeReimb(targetReimb);
 			}
 		}	
 	}

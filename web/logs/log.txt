@@ -369,3 +369,16 @@ oracle.jdbc.driver.T4CCallableStatement.executeForRows(T4CCallableStatement.java
 2020-03-27 08:59:22 INFO  LoginServlet:54 - Attempting to pull user admin1
 2020-03-27 08:59:22 INFO  LoginServlet:64 - Successful login from admin1.
 2020-03-27 09:00:34 INFO  ViewReimbServlet:76 - Approved reimb 2069724946
+2020-03-27 09:05:44 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-27 09:05:45 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-27 09:06:02 INFO  ReimbDaoImp:33 - Attempting to log new reimbursement.
+2020-03-27 09:06:02 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-27 09:07:14 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-27 09:07:14 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-27 09:07:41 INFO  ReimbDaoImp:33 - Attempting to log new reimbursement.
+2020-03-27 09:07:41 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-27 09:08:22 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-27 09:08:22 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-27 09:08:29 INFO  ViewReimbServlet:76 - Approved reimb 1044811873
+2020-03-27 09:08:51 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-27 09:08:51 INFO  LoginServlet:64 - Successful login from user1.
