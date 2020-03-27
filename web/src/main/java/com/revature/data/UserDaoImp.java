@@ -1,5 +1,7 @@
 package com.revature.data;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,24 +15,27 @@ import org.apache.log4j.Logger;
 
 import com.revature.models.User;
 
+import services.Hashing;
+
 public class UserDaoImp implements UserDao {
 
 	Logger log = Logger.getLogger(UserDaoImp.class);
 	
-	public void storeUser(User user) {
+	public void storeUser(User user) throws NoSuchAlgorithmException, InvalidKeySpecException {
 		try(Connection conn = ConnectionUtil.getConnection()){
 			if(newUser(user)) {
 				String sql = "CALL insert_into_ers_users(?,?,?,?,?,?,?)";
-				cleanAndExecute(conn, sql, ((Integer)user.getUserId()).toString(), user.getUsername(), user.getPassword(), user.getFirstName(),
+				cleanAndExecute(conn, sql, ((Integer)user.getUserId()).toString(), user.getUsername(), Hashing.hash(user.getPassword()), user.getFirstName(),
 						user.getLastName(), user.getEmail(), ((Integer) user.getRole()).toString());
 			}else {
 				String sql = "CALL update_ers_users(?,?,?,?,?,?)";
-				cleanAndExecute(conn, sql, user.getUsername(), user.getPassword(), user.getFirstName(),
+				cleanAndExecute(conn, sql, user.getUsername(), Hashing.hash(user.getPassword()), user.getFirstName(),
 						user.getLastName(), user.getEmail(), ((Integer) user.getRole()).toString());
 			}
 		}catch(SQLException e) {
-			log.error("sql exception:\n" + e.getStackTrace());
 			e.printStackTrace();
+			//log.error("sql exception:\n" + e.getStackTrace()[0]);
+			
 		}
 	}
 
@@ -164,7 +169,8 @@ public class UserDaoImp implements UserDao {
 			//System.out.println("Made it here.");
 			return res;
 		}catch(SQLException e) {
-			log.error("sql exception:\n" + e.getStackTrace());
+			e.printStackTrace();
+			//log.error("sql exception:\n" + e.getStackTrace());
 			return null;
 		}
 	}

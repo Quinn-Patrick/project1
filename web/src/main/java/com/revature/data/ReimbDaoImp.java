@@ -118,7 +118,7 @@ public class ReimbDaoImp implements ReimbDao {
 			sql = "SELECT reimb_type FROM ers_reimbursement_type WHERE reimb_type_id = ?";
 			innerResults = cleanAndExecute(conn, sql, ""+newR.getType());
 			innerResults.next();
-			newR.setStatusName(innerResults.getString("reimb_type"));
+			newR.setTypeName(innerResults.getString("reimb_type"));
 			
 			
 			

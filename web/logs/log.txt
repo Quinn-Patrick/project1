@@ -212,3 +212,48 @@ oracle.jdbc.driver.T4CCallableStatement.executeForRows(T4CCallableStatement.java
 2020-03-26 19:11:15 INFO  LoginServlet:64 - Successful login from user1.
 2020-03-26 19:11:24 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
 2020-03-26 19:11:24 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 20:17:15 ERROR UserDaoImp:171 - sql exception:
+[Ljava.lang.StackTraceElement;@dd0c991
+2020-03-26 20:19:41 ERROR UserDaoImp:172 - sql exception:
+[Ljava.lang.StackTraceElement;@dd0c991
+2020-03-26 20:21:41 ERROR UserDaoImp:172 - sql exception:
+[Ljava.lang.StackTraceElement;@236e3f4e
+2020-03-26 20:44:59 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:48:06 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:48:08 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:49:55 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:49:57 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:50:10 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:50:11 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:51:52 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:51:54 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:52:37 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:52:39 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:54:22 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:54:24 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:54:58 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:55:00 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:56:12 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:56:13 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:56:58 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:56:59 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:57:11 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:57:13 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:57:27 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:57:29 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:57:40 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:57:42 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:58:34 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 20:58:36 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 21:00:01 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 21:00:03 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 21:01:02 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 21:01:04 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 21:01:06 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 21:01:16 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 21:01:18 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 21:01:20 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 21:06:08 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 21:06:08 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 21:06:23 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
+2020-03-26 21:06:23 INFO  LoginServlet:70 - Created new reimbursement.
