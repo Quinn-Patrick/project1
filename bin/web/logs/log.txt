@@ -348,24 +348,3 @@ oracle.jdbc.driver.T4CCallableStatement.executeForRows(T4CCallableStatement.java
 2020-03-26 23:37:57 INFO  LoginServlet:64 - Successful login from admin1.
 2020-03-26 23:38:13 INFO  LoginServlet:54 - Attempting to pull user user1
 2020-03-26 23:38:14 INFO  LoginServlet:64 - Successful login from user1.
-2020-03-27 08:41:23 INFO  LoginServlet:54 - Attempting to pull user admin1
-2020-03-27 08:41:24 INFO  LoginServlet:64 - Successful login from admin1.
-2020-03-27 08:41:34 INFO  ReimbDaoImp:33 - Attempting to log new reimbursement.
-2020-03-27 08:41:35 INFO  LoginServlet:70 - Created new reimbursement.
-2020-03-27 08:52:48 INFO  LoginServlet:54 - Attempting to pull user admin1
-2020-03-27 08:52:48 INFO  LoginServlet:64 - Successful login from admin1.
-2020-03-27 08:53:03 INFO  ReimbDaoImp:33 - Attempting to log new reimbursement.
-2020-03-27 08:53:03 INFO  LoginServlet:70 - Created new reimbursement.
-2020-03-27 08:54:08 INFO  LoginServlet:54 - Attempting to pull user admin1
-2020-03-27 08:54:09 INFO  LoginServlet:64 - Successful login from admin1.
-2020-03-27 08:56:06 INFO  LoginServlet:54 - Attempting to pull user admin1
-2020-03-27 08:56:07 INFO  LoginServlet:64 - Successful login from admin1.
-2020-03-27 08:57:03 INFO  LoginServlet:54 - Attempting to pull user admin1
-2020-03-27 08:57:04 INFO  LoginServlet:64 - Successful login from admin1.
-2020-03-27 08:58:54 INFO  LoginServlet:54 - Attempting to pull user admin1
-2020-03-27 08:58:55 INFO  LoginServlet:64 - Successful login from admin1.
-2020-03-27 08:59:12 INFO  LoginServlet:54 - Attempting to pull user admin1
-2020-03-27 08:59:12 INFO  LoginServlet:68 - Incorrect password from admin1.
-2020-03-27 08:59:22 INFO  LoginServlet:54 - Attempting to pull user admin1
-2020-03-27 08:59:22 INFO  LoginServlet:64 - Successful login from admin1.
-2020-03-27 09:00:34 INFO  ViewReimbServlet:76 - Approved reimb 2069724946

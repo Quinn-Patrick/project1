@@ -151,7 +151,7 @@
 		     			  row5.appendChild(denyButton);
 		     			  
 	     			  }
-	     			  /* /let imageButton = document.createElement('button');
+	     			 /*  let imageButton = document.createElement('button');
 	     			  imageButton.innerHTML = "Show Image";
 	     			  imageButton.setAttribute('class', 'btn btn-primary');
 	     			  imageButton.setAttribute('onclick', 'loadImage(' + currentId + ')');
@@ -239,9 +239,9 @@
     		let url = "http://localhost:8080/project1web/loadImage";
     		xhr.onreadystatechange = function() {
     			  if(xhr.readyState == 4 && xhr.status == 200) {
-    				  
+    				  console.log(typeof(this.responseText));
     				  image = document.createElement('img');
-    				  image.setAttribute('src', `data:image/png;base64,${this.responseText}`);
+    				  image.setAttribute('src', "data:image/png;base8,"+ _arrayBufferToBase64(toUTF8Array(this.responseText)));
     				  document.getElementById('row5'+id).appendChild(image);
     				  
     			  }

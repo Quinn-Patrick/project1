@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	    <meta charset='utf-8'>
+	    <title>Reimbursement Portal</title>
+	    
+	    <meta name='viewport' content='width=device-width, initial-scale=1'>
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+
+	<body>
+		<div class = "container">
+	        <div class="jumbotron">
+	            <h1>Expense Reimbursement Portal</h1>
+	            <p class = 'lead'>Submit Your Reimbursement Receipt</p>
+	        </div>
+	        <form method = "POST" action = "/project1web/imageUpload" enctype = "multipart/form-data">
+		        <div class="form-group">
+					<label for="img">Upload Scanned Receipt</label>
+					<input type="file" class="form-control" id="img" name="img">
+					<input type="submit" value = "Submit File">
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

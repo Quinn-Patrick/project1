@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Reimbursement Portal</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1>Expense Reimbursement Portal</h1>
+        <p class = 'lead'>User Login</p>
+    </div>
+    <div class="container">
+        <form id = "form">
+	        <input type="text" name="username" id = "username">
+	    	<input type="password" name="password" id = "password">
+	    	
+        </form>
+        <button class="btn btn-primary" onclick = "sendCreds()">Login</button>
+        
+        
+    </div>
+    <script>
+    	  
+    		
+    	  function sendCreds() {
+    	  
+    	  
+    	  
+    	  let form = document.getElementsByTagName("form")[0];
+
+    	  let usernameElement = document.getElementsByName("username")[0];
+    	  let passwordElement = document.getElementsByName("password")[0];
+    	  console.log(usernameElement.value);
+    	  let url = "http://localhost:8080/project1web/login";
+
+    	  let data = {
+    	    username: usernameElement.value,
+    	    password: passwordElement.value,
+    	  };
+
+    	  let xhr = new XMLHttpRequest();
+
+    	  xhr.onreadystatechange = function() {
+    		  console.log(`ready state changed to ${this.readyState} with status code ${this.status}`);
+    		  if(this.readyState == 4 && this.status == 200) {
+    			  console.log(`${this.responseText}`);
+    			  let employee = JSON.parse(this.responseText);
+    			  
+    			  if(employee !== null){
+	    			  console.log(employee);
+	    			  sessionStorage.setItem("currentUser", this.responseText);
+	    			  window.location = "http://localhost:8080/project1web/frontPage.html";
+    			  }
+    			  // This is what you do to set a value into the client-side session
+    		  }
+    	  } 
+    	  
+    	  xhr.open("POST", "http://localhost:8080/project1web/login");
+    	  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    	  console.log(JSON.stringify(data));
+    	  xhr.send(JSON.stringify(data));
+    	}
+    </script>
+    
+</body>
+
+</html>

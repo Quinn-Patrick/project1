@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>project1web</display-name>
+  <welcome-file-list>
+    <welcome-file>login.html</welcome-file>
+  </welcome-file-list>
+  
+  <context-param> 
+      <description>Location to store uploaded file</description> 
+      <param-name>file-upload</param-name> 
+      <param-value>
+         C:\\Users\\Quinn\\Documents\\revTrainingJava\\project1gitRepo\\project1\\web\\src\\main\\resources\\
+      </param-value> 
+   </context-param>
+  
+  <context-param>
+  	<param-name>ContextParam</param-name>
+  	<param-value>allServlets</param-value>
+  </context-param>
+  
+  <servlet>
+  	<servlet-name>FrontPageServlet</servlet-name>
+  	<servlet-class>com.revature.servlets.ReimbMenuServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FrontPageServlet</servlet-name>
+  	<url-pattern>/frontPage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>LoadImageServlet</servlet-name>
+  	<servlet-class>com.revature.servlets.LoadImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoadImageServlet</servlet-name>
+  	<url-pattern>/loadImage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>NewReimbServlet</servlet-name>
+  	<servlet-class>com.revature.servlets.NewReimbServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>NewReimbServlet</servlet-name>
+  	<url-pattern>/newRequest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>com.revature.servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ViewReimbServlet</servlet-name>
+  	<servlet-class>com.revature.servlets.ViewReimbServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ViewReimbServlet</servlet-name>
+  	<url-pattern>/viewRequest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ImageUploadServlet</servlet-name>
+  	<servlet-class>com.revature.servlets.UploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ImageUploadServlet</servlet-name>
+  	<url-pattern>/imageUpload</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  	<filter-name>cors</filter-name>
+  	<filter-class>com.revature.cors.CorsFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>cors</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>
