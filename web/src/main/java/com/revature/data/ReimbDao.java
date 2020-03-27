@@ -1,5 +1,6 @@
 package com.revature.data;
 
+
 import java.util.List;
 
 import javax.servlet.http.Part;
@@ -15,4 +16,6 @@ public interface ReimbDao {
 	
 	public void deleteReimb(int reimbId);
 	public void uploadImage(int reimbId, Part image);
+	
+	public byte[] downloadImage(int reimbId);
 }

@@ -28,6 +28,15 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>LoadImageServlet</servlet-name>
+  	<servlet-class>com.revature.servlets.LoadImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoadImageServlet</servlet-name>
+  	<url-pattern>/loadImage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>NewReimbServlet</servlet-name>
   	<servlet-class>com.revature.servlets.NewReimbServlet</servlet-class>
   </servlet>

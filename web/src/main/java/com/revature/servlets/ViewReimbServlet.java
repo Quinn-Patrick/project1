@@ -29,7 +29,10 @@ public class ViewReimbServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 		    throws IOException, ServletException {
 		HttpSession session = req.getSession(true);
+		
 		User user = (User) session.getAttribute("currentUser");
+		if(user == null) res.sendRedirect("http://localhost:8080/project1web/login.html");
+		System.out.println(user);
 		List<Reimb> reimbs = null;
 		if(user.getRole() == 1) {
 			reimbs = ReimbService.retrieveAllReimbs();

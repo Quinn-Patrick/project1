@@ -17,7 +17,7 @@
         <h1>Expense Reimbursement Portal</h1>
         <p class = 'lead'>View Your Past Reimbursements</p>
     </div>
-    <div id = 'block'>
+    <div id = 'block' class = 'container'>
         
     </div>
     
@@ -35,6 +35,7 @@
 	     		  data = JSON.parse(this.responseText);
 	     		  for(i = 0; i < data.length; i++){
 	     			  currentId = data[i].reimbId;
+	     			  approved = data[i].status;
 	     			  //Put in the main four rows-------------
 	     			  let row1 = document.createElement('div');
 	     			  row1.setAttribute('class', 'row');
@@ -130,11 +131,13 @@
 	     			  
 	     			  //----------------------------------------
 	     			  
+	     			  let row5 = document.createElement('div');
+	     			  row5.setAttribute('class', 'row');
+	     			  row5.setAttribute('id', 'row5'+currentId);
+	     			  document.getElementById('block').appendChild(row5);
 	     			  //Add row 5 only if the user is a finance manager
-	     			  if(permission == 1){
-	     				  let row5 = document.createElement('div');
-		     			  row5.setAttribute('class', 'row');
-		     			  document.getElementById('block').appendChild(row5);
+	     			  if(permission == 1 && approved == 0){
+	     				  
 		     			  let approveButton = document.createElement('button');
 		     			  approveButton.innerHTML = "Approve";
 		     			  approveButton.setAttribute('class', 'btn btn-success');
@@ -148,6 +151,13 @@
 		     			  row5.appendChild(denyButton);
 		     			  
 	     			  }
+	     			 /*  let imageButton = document.createElement('button');
+	     			  imageButton.innerHTML = "Show Image";
+	     			  imageButton.setAttribute('class', 'btn btn-primary');
+	     			  imageButton.setAttribute('onclick', 'loadImage(' + currentId + ')');
+	     			  row5.appendChild(imageButton); */
+	     			  
+	     			  
 	     			//add a rule to help keep things organized
 	     			  let hr = document.createElement('hr');
 	     			  document.getElementById('block').appendChild(hr);
@@ -177,6 +187,7 @@
 	     
 	     function approveRequest(req){
 	    	 let emp = JSON.parse(sessionStorage.getItem("currentUser"));
+	    	 
 	    	 let resName = emp.userId;
 	    	 
 	    	 let xhr = new XMLHttpRequest();
@@ -200,13 +211,14 @@
 	     
 	     function denyRequest(req){
 	    	 let emp = JSON.parse(sessionStorage.getItem("currentUser"));
+	    	 console.log(emp);
 	    	 let resName = emp.username;
 	    	 
 	    	 let xhr = new XMLHttpRequest();
 	    	 let basicdata = {
 	    			 reimbId: req,
 	    			 approved: false,
-	    			 resolver: userId,
+	    			 resolver: emp.userId,
 	    	 }
 	    	 let url = "http://localhost:8080/project1web/viewRequest";
 	    	 xhr.onreadystatechange = function(){
@@ -221,6 +233,66 @@
 	    	 xhr.open("POST", url);
 	    	 xhr.send(JSON.stringify(basicdata));
 	     }
+	     
+	     function loadImage(id){
+    		let xhr = new XMLHttpRequest;
+    		let url = "http://localhost:8080/project1web/loadImage";
+    		xhr.onreadystatechange = function() {
+    			  if(xhr.readyState == 4 && xhr.status == 200) {
+    				  console.log(typeof(this.responseText));
+    				  image = document.createElement('img');
+    				  image.setAttribute('src', "data:image/png;base8,"+ _arrayBufferToBase64(toUTF8Array(this.responseText)));
+    				  document.getElementById('row5'+id).appendChild(image);
+    				  
+    			  }
+    		}
+    		
+    		function _arrayBufferToBase64( buffer ) {
+    		    var binary = '';
+    		    var bytes = new Uint8Array( buffer );
+    		    var len = bytes.byteLength;
+    		    for (var i = 0; i < len; i++) {
+    		        binary += String.fromCharCode( bytes[ i ] );
+    		    }
+    		    return window.btoa( binary );
+    		}
+    		
+    		function toUTF8Array(str) {
+    		    var utf8 = [];
+    		    for (var i=0; i < str.length; i++) {
+    		        var charcode = str.charCodeAt(i);
+    		        if (charcode < 0x80) utf8.push(charcode);
+    		        else if (charcode < 0x800) {
+    		            utf8.push(0xc0 | (charcode >> 6), 
+    		                      0x80 | (charcode & 0x3f));
+    		        }
+    		        else if (charcode < 0xd800 || charcode >= 0xe000) {
+    		            utf8.push(0xe0 | (charcode >> 12), 
+    		                      0x80 | ((charcode>>6) & 0x3f), 
+    		                      0x80 | (charcode & 0x3f));
+    		        }
+    		        // surrogate pair
+    		        else {
+    		            i++;
+    		            // UTF-16 encodes 0x10000-0x10FFFF by
+    		            // subtracting 0x10000 and splitting the
+    		            // 20 bits of 0x0-0xFFFFF into two halves
+    		            charcode = 0x10000 + (((charcode & 0x3ff)<<10)
+    		                      | (str.charCodeAt(i) & 0x3ff));
+    		            utf8.push(0xf0 | (charcode >>18), 
+    		                      0x80 | ((charcode>>12) & 0x3f), 
+    		                      0x80 | ((charcode>>6) & 0x3f), 
+    		                      0x80 | (charcode & 0x3f));
+    		        }
+    		    }
+    		    return utf8;
+    		}
+    		
+    		console.log(id);
+    		let data = {reimbId: id,};
+    		xhr.open("POST", url);
+    		xhr.send(JSON.stringify(id));
+    	}
 	     
      </script> 
 </body>

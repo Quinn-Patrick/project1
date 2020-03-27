@@ -9,3 +9,4 @@ xhr.onreadystatechange = function() {
 xhr.open("GET", url);
 xhr.send();
 console.log(JSON.stringify(data));
+

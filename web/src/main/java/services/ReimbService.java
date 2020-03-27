@@ -1,5 +1,6 @@
 package services;
 
+
 import java.util.List;
 
 import javax.servlet.http.Part;
@@ -35,5 +36,9 @@ public class ReimbService {
 	public static void uploadImage(int reimbId, Part image) {
 		data.uploadImage(reimbId, image);
 		
+	}
+	
+	public static byte[] downloadImage(int reimbId) {
+		return data.downloadImage(reimbId);
 	}
 }

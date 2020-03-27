@@ -1,6 +1,8 @@
 package com.revature.data;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +12,7 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.sql.Types;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +40,13 @@ public class ReimbDaoImp implements ReimbDao {
 				stmt.setInt(1, reimb.getReimbId());
 				stmt.setString(2, ((Double)reimb.getAmount()).toString());
 				LocalDateTime date = reimb.getSubmitted();
-				stmt.setTimestamp(3, new Timestamp(date.getYear(), date.getMonthValue(), date.getDayOfMonth(),
-				date.getHour(), date.getMinute(), date.getSecond(), 0));
+				
+				ZoneId zoneId = ZoneId.systemDefault();
+				long epoch = date.atZone(zoneId).toEpochSecond()*1000;
+				
+				System.out.println(epoch);
+				
+				stmt.setTimestamp(3, new Timestamp(epoch));
 				stmt.setNull(4, Types.TIMESTAMP);
 				stmt.setString(5, reimb.getDescription());
 				stmt.setInt(6, reimb.getAuthor());
@@ -60,8 +68,11 @@ public class ReimbDaoImp implements ReimbDao {
 				CallableStatement stmt = conn.prepareCall(sql);
 				stmt.setInt(1, reimb.getReimbId());
 				LocalDateTime date = reimb.getResolved();
-				stmt.setTimestamp(2, new Timestamp(date.getYear(), date.getMonthValue(), date.getDayOfMonth(),
-				date.getHour(), date.getMinute(), date.getSecond(), 0));
+				ZoneId zoneId = ZoneId.systemDefault();
+				long epoch = date.atZone(zoneId).toEpochSecond()*1000;
+				
+				System.out.println(epoch);
+				stmt.setTimestamp(2, new Timestamp(epoch));
 				stmt.setInt(3, reimb.getResolver());
 				stmt.setInt(4, reimb.getStatus());
 				
@@ -138,7 +149,7 @@ public class ReimbDaoImp implements ReimbDao {
 		try(Connection conn = ConnectionUtil.getConnection()){
 			List<Reimb> allReimb = new ArrayList<>();
 			
-			String sql = "SELECT * FROM ers_reimbursement";
+			String sql = "SELECT * FROM ers_reimbursement  ORDER BY reimb_submitted";
 			ResultSet res = cleanAndExecute(conn, sql);
 			
 			while(res.next()) {
@@ -295,7 +306,7 @@ public class ReimbDaoImp implements ReimbDao {
 		try(Connection conn = ConnectionUtil.getConnection()){
 			List<Reimb> allReimb = new ArrayList<>();
 			
-			String sql = "SELECT * FROM ers_reimbursement WHERE reimb_author = ?";
+			String sql = "SELECT * FROM ers_reimbursement WHERE reimb_author = ? ORDER BY reimb_submitted";
 			ResultSet res = cleanAndExecute(conn, sql, ""+userId);
 			
 			while(res.next()) {
@@ -371,9 +382,32 @@ public class ReimbDaoImp implements ReimbDao {
 			conn.close();
 		}catch(SQLException e){
 			e.printStackTrace();
-			logger.error(e.getStackTrace()[0]);
+			logger.error(e.getStackTrace()[0]); 
 
 		}
 		
+	}
+
+	@Override
+	public byte[] downloadImage(int reimbId) {
+		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = "SELECT reimb_receipt FROM ers_reimbursement WHERE reimb_id = ?";
+			ResultSet res = cleanAndExecute(conn, sql, ""+reimbId);
+			res.next();
+			Blob b = res.getBlob("reimb_receipt");
+			InputStream is = b.getBinaryStream();
+			byte buf[] = new byte[(int) b.length()];
+			try {
+				is.read(buf);
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+			return buf;
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			logger.error(e.getStackTrace()[0]); 
+		}
+		return null;
 	}
 }

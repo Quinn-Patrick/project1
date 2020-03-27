@@ -257,3 +257,90 @@ oracle.jdbc.driver.T4CCallableStatement.executeForRows(T4CCallableStatement.java
 2020-03-26 21:06:08 INFO  LoginServlet:64 - Successful login from user1.
 2020-03-26 21:06:23 INFO  ReimbDaoImp:30 - Attempting to log new reimbursement.
 2020-03-26 21:06:23 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 21:11:00 INFO  LoginServlet:54 - Attempting to pull user user1
+2020-03-26 21:11:00 INFO  LoginServlet:64 - Successful login from user1.
+2020-03-26 21:17:23 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 21:17:23 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 21:17:41 INFO  ViewReimbServlet:76 - Approved reimb 521548887
+2020-03-26 21:20:47 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 21:20:47 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 21:22:36 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 21:22:37 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 21:22:45 INFO  ViewReimbServlet:79 - Denied and deleted reimb 521548887
+2020-03-26 21:27:36 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 21:27:36 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 21:27:48 INFO  ReimbDaoImp:31 - Attempting to log new reimbursement.
+2020-03-26 21:27:48 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 21:29:36 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 21:29:36 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 21:29:49 INFO  ReimbDaoImp:31 - Attempting to log new reimbursement.
+2020-03-26 21:29:49 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 21:33:02 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 21:33:02 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 21:33:42 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 21:33:42 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 21:35:55 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 21:35:56 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 21:36:06 INFO  ViewReimbServlet:76 - Approved reimb 1662567765
+2020-03-26 22:12:48 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:12:49 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:13:44 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:13:45 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:15:02 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:15:03 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:16:33 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:16:33 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:18:11 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:18:11 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:19:29 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:19:29 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:20:47 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:20:48 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:21:46 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:21:47 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:23:46 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:23:47 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:27:30 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:27:30 INFO  LoginServlet:68 - Incorrect password from admin1.
+2020-03-26 22:27:40 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:27:40 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:28:18 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:28:18 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:28:22 ERROR ReimbDaoImp:400 - oracle.jdbc.driver.GeneratedScrollableResultSet.getBLOB(GeneratedScrollableResultSet.java:497)
+2020-03-26 22:30:43 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:30:43 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:37:26 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:37:26 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:41:27 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:41:27 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:43:18 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:43:18 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:44:23 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:44:23 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:45:37 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:45:37 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 22:59:44 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 22:59:44 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 23:01:36 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 23:01:37 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 23:03:17 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 23:03:17 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 23:04:31 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 23:04:31 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 23:05:26 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 23:05:26 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 23:06:34 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 23:06:34 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 23:09:47 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 23:09:48 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 23:10:25 INFO  ReimbDaoImp:33 - Attempting to log new reimbursement.
+2020-03-26 23:10:25 INFO  LoginServlet:70 - Created new reimbursement.
+2020-03-26 23:25:14 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 23:25:14 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 23:26:49 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 23:26:49 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 23:32:32 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 23:32:32 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 23:36:24 INFO  LoginServlet:54 - Attempting to pull user admin1
+2020-03-26 23:36:24 INFO  LoginServlet:64 - Successful login from admin1.
+2020-03-26 23:36:44 INFO  ViewReimbServlet:79 - Denied and deleted reimb 33297709

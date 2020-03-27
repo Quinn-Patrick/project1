@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet{
 			  throws IOException, ServletException {
 		res.setContentType("application/json");
 		
-		String username = "";
+		String username = ""; 
 		String password = "";
 		String jsonRaw = "";
 		try(BufferedReader reader = req.getReader()){
